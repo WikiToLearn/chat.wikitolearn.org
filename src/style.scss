@@ -1,0 +1,197 @@
+$breakpoints: (
+  xs: 320px,
+  sm: 480px,
+  md: 768px,
+  lg: 992px,
+  xl: 1200px
+);
+
+@mixin media-breakpoint-up($breakpointName) {
+    $width: map-get($breakpoints, $breakpointName);
+
+    @if $width {
+        @media (min-width: $width) {
+            @content;
+        }
+    } @else {
+        @error "Impossible to find breakpoint #{$breakpointName}";
+    }
+}
+
+@mixin media-breakpoint-down($breakpointName) {
+    $width: map-get($breakpoints, $breakpointName);
+
+    @if $width {
+        @media (max-width: $width) {
+            @content;
+        }
+    } @else {
+        @error "Impossible to find breakpoint #{$breakpointName}";
+    }
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Open Sans', sans-serif;
+    font-size: 1rem;
+    line-height: 1.5;
+    color: #333;
+    background-color: #f8f8fb;
+}
+
+.Wrapper {
+    padding: 0.5rem;
+    @include media-breakpoint-up(sm) {
+        padding: 2rem 3rem;
+    }
+}
+
+.Sheet {
+    background-color: white;
+    box-shadow: 0px 1px 3px rgba(0,0,0,0.1);
+    position: relative;
+
+    padding: 1rem 1.5rem;
+    @include media-breakpoint-up(sm) {
+        padding: 2rem 4rem;
+    }
+}
+
+.Title {
+    text-align: center;
+
+    &__content {
+        @include media-breakpoint-up(sm) {
+            display: inline-flex;
+            justify-content: center;
+            align-items: center;
+        }
+        text-decoration: none;
+        color: inherit;
+    }
+    
+
+    &__logo {
+        display: block;
+        margin: 0 auto;
+        margin-bottom: 0.25rem;
+        height: 2.5rem;
+
+        
+        @include media-breakpoint-up(sm) {
+            margin: 0;
+            margin-right: 0.25rem;
+        }
+    }
+
+    &__name {
+        height: 1.8rem;
+        margin-right: 0.125rem;
+    }
+
+    &__text {
+        font-size: 1.25rem;
+        align-self: flex-end;
+        height: 1.8rem;
+    }
+}
+
+.Content {
+    margin-top: 1rem;
+    font-size: 1.1rem;
+
+    &__chats {
+        margin: 1rem 0;
+    }
+}
+
+.Link {
+    color: #0275d8;
+    text-decoration: none;
+    &:hover {
+        color: #014c8c;
+        text-decoration: underline;
+    }
+}
+.Chats {
+    .Chat {
+        border: 1px solid rgba(0,0,0,0.1);
+        border-radius: 3px;
+        margin-bottom: 0.5rem;
+        padding: 1rem 1.5rem;
+        display: block;
+
+        @include media-breakpoint-up(sm) {
+            padding: 1rem 2rem;
+            display: flex;
+        }
+
+        &__meta {
+            flex: 1;
+        }
+        &__control {
+            margin-left: 0.5rem;
+            text-align: center;
+            
+            @include media-breakpoint-down(sm) {
+                margin-left: 0;
+
+                padding: 0.5rem;
+                border: 1px solid rgba(0,0,0,0.1);
+                border-radius: 1rem;
+                margin-top: 0.5rem;
+            }
+            @include media-breakpoint-up(sm) {
+                i {
+                    display: inline-flex;
+                    justify-content: center;
+                    align-items: center;
+                    padding: 1.5rem;
+                    border: 1px solid rgba(184, 79, 79, 0.1);
+                    border-radius: 100%;
+                    width: 1.25rem;
+                    height: 1.25rem;
+                    color: rgba(0,0,0,0.3);
+                    font-size: 2rem;
+                }
+            }
+
+            &-text {
+                @include media-breakpoint-up(sm) {
+                    display: none;
+                } 
+            }
+        }
+        &__title {
+            font-size: 1.25rem;
+            margin-bottom: -0.25rem;
+        }
+
+        &__description {
+            font-weight: lighter;
+        }
+
+        &__link {
+            text-decoration: none;
+            color: inherit;
+        }
+
+        &:hover {
+            .Chat__title {
+                color: #0275d8;
+            }
+
+            .Chat__control {
+                i { 
+                    color: #0275d8;
+                    border-color: #0275d8;
+                }
+            }
+        }
+    }
+}

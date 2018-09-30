@@ -1,0 +1,26 @@
+{
+    "chats": [
+        {
+            "key": "GENERAL",
+            "href": "#",
+            "icon": "fab fa-telegram-plane"
+        },
+        {
+            "key": "ITALIAN",
+            "href": "#",
+            "icon": "fab fa-telegram-plane"
+        }
+    ],
+    "others": [
+        {
+            "key": "MAIL",
+            "href": "mailto:info@wikitolearn.org",
+            "icon": "far fa-envelope"
+        },
+        {
+            "key": "FACEBOOK",
+            "href": "#",
+            "icon": "fab fa-facebook-f"
+        }
+    ]
+}
