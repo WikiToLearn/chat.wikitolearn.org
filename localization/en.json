@@ -1,4 +1,17 @@
 {
     "SITE_TITLE": "WikiToLearn Chat",
-    "SITE_DESCRIPTION": "ADD DESC HERE"
+    "SITE_DESCRIPTION": "WikiToLearn Chat",
+    "SITE_MESSAGE": "Hi! In an effort to provide a better service to the community we recently decided to limit our official channels and thus we turned off our RocketChat installation. We are keeping some help and generic support channels where you can always reach the greater community in a more lightweight way. Here are the links for our these chats.",
+    "CHAT_DESCRIPTION": "Telegram Chats",
+    "OTHER_DESCRIPTION": "Other contacts",
+    "CHAT_GENERAL_TITLE": "Main chat",
+    "CHAT_GENERAL_DESCRIPTION": "Main chat",
+    "CHAT_ITALIAN_TITLE": "Italian chat",
+    "CHAT_ITALIAN_DESCRIPTION": "Italian chat",
+    "CHAT_ITALIAN_EDITOR_TITLE": "Italian Editor chat",
+    "CHAT_ITALIAN_EDITOR_DESCRIPTION": "Italian Editor chat",
+    "OTHER_MAIL_TITLE": "Info email",
+    "OTHER_MAIL_DESCRIPTION": "Info email",
+    "OTHER_FACEBOOK_TITLE": "Facebook page",
+    "OTHER_FACEBOOK_DESCRIPTION": "Facebook page"
 }

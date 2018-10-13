@@ -5,14 +5,21 @@ $configJson = fread($configFile, filesize("config.json"));
 fclose($configFile);
 $config = json_decode($configJson, true);
 
-$lang = substr($_SERVER['HTTP_ACCEPT_LANGUAGE'], 0, 2);
-$acceptLang = ['it', 'en']; 
-$lang = in_array($lang, $acceptLang) ? $lang : 'en';
+$langCode = substr($_SERVER['HTTP_ACCEPT_LANGUAGE'], 0, 2);
+$acceptLang = [];
+foreach (scandir("localization") as $langFile) {
+  if ($langFile != "." && $langFile != "..") {
+      $acceptLang[] = pathinfo($langFile, PATHINFO_FILENAME);
+  }
+}
+$langCode = in_array($langCode, $acceptLang) ? $langCode : 'en';
 
-$langFile = fopen("localization/$lang.json", "r") or die("Unable to open localization/$lang.json file");
-$langJson = fread($langFile, filesize("config.json"));
-fclose($langFile);
-$lang = json_decode($langJson, true);
+$langCodeFilename = "localization/$langCode.json";
+
+$langCodeFile = fopen($langCodeFilename, "r") or die("Unable to open localization/$langCode.json file");
+$langCodeJson = fread($langCodeFile, filesize($langCodeFilename));
+fclose($langCodeFile);
+$lang = json_decode($langCodeJson, true);
 
 function tr($key) {
     echo $GLOBALS['lang'][$key] ?? $key;
@@ -20,7 +27,7 @@ function tr($key) {
 
 ?>
 <!DOCTYPE html>
-<html lang="<?php echo $lang; ?>">
+<html lang="<?php echo $langCode; ?>">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -35,18 +42,22 @@ function tr($key) {
 <body class="Wrapper">
     <div class="Sheet">
         <div class="Title">
-            <a href="https://wikitolearn.org" class="Title__content"> 
-                <img class="Title__logo" src="dist/images/wikitolearn-logo.png" alt="">
-                <img class="Title__name" src="dist/images/name.svg" alt="">
+            <a href="https://wikitolearn.org" class="Title__content">
+                <img class="Title__logo" src="dist/images/wikitolearn-logo.png" alt="wikitolearn logo">
+                <img class="Title__name" src="dist/images/name.svg" alt="wikitolearn chat logo">
                 <span class="Title__text">Chat</span>
             </a>
         </div>
         <main class="Content">
             <div class="Content__description">
+                <?php tr("SITE_MESSAGE") ?>
+            </div>
+            <br>
+            <div class="Content__description">
                 <?php tr("CHAT_DESCRIPTION") ?>
             </div>
             <div class="Content__chats Chats">
-                <?php 
+                <?php
                     $chats = $config["chats"];
                     foreach ($chats as $chat) {
                         ?>
@@ -70,7 +81,7 @@ function tr($key) {
                 <?php tr("OTHER_DESCRIPTION") ?>
             </div>
             <div class="Content__chats Chats">
-                <?php 
+                <?php
                     $others = $config["others"];
                     foreach ($others as $other) {
                         ?>

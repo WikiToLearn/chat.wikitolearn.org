@@ -2,12 +2,17 @@
     "chats": [
         {
             "key": "GENERAL",
-            "href": "#",
+            "href": "https://t.me/WikiToLearn",
             "icon": "fab fa-telegram-plane"
         },
         {
             "key": "ITALIAN",
-            "href": "#",
+            "href": "https://t.me/WikiToLearnITA",
+            "icon": "fab fa-telegram-plane"
+        },
+        {
+            "key": "ITALIAN_EDITOR",
+            "href": "https://t.me/WikiToLearnEditorsIT",
             "icon": "fab fa-telegram-plane"
         }
     ],
@@ -19,7 +24,7 @@
         },
         {
             "key": "FACEBOOK",
-            "href": "#",
+            "href": "https://www.facebook.com/WikiToLearn/",
             "icon": "fab fa-facebook-f"
         }
     ]
