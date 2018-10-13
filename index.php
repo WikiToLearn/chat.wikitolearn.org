@@ -5,11 +5,15 @@ $configJson = fread($configFile, filesize("config.json"));
 fclose($configFile);
 $config = json_decode($configJson, true);
 
-$langCode = substr($_SERVER['HTTP_ACCEPT_LANGUAGE'], 0, 2);
+$langCode = null;
 $acceptLang = [];
-foreach (scandir("localization") as $langFile) {
-  if ($langFile != "." && $langFile != "..") {
-      $acceptLang[] = pathinfo($langFile, PATHINFO_FILENAME);
+
+if(in_array('HTTP_ACCEPT_LANGUAGE', $_SERVER)) {
+  $langCode = substr($_SERVER['HTTP_ACCEPT_LANGUAGE'], 0, 2);
+  foreach (scandir("localization") as $langFile) {
+    if ($langFile != "." && $langFile != "..") {
+        $acceptLang[] = pathinfo($langFile, PATHINFO_FILENAME);
+    }
   }
 }
 $langCode = in_array($langCode, $acceptLang) ? $langCode : 'en';
