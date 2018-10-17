@@ -21,11 +21,15 @@
 
     "OTHER_DESCRIPTION": "Other contacts",
 
-    "OTHER_MAIL_TITLE": "Info email",
-    "OTHER_MAIL_DESCRIPTION": "Info email",
-    "OTHER_MAIL_ACTION": "Send",
-
     "OTHER_FACEBOOK_TITLE": "Facebook page",
     "OTHER_FACEBOOK_DESCRIPTION": "Official Facebook page",
-    "OTHER_FACEBOOK_ACTION": "Open"
+    "OTHER_FACEBOOK_ACTION": "Open",
+
+    "OTHER_TWITTER_TITLE": "Twitter page",
+    "OTHER_TWITTER_DESCRIPTION": "Official Twitter page",
+    "OTHER_TWITTER_ACTION": "Open",
+
+    "OTHER_MAIL_TITLE": "Info email",
+    "OTHER_MAIL_DESCRIPTION": "Info email info@wikitolearn.org",
+    "OTHER_MAIL_ACTION": "Send"
 }

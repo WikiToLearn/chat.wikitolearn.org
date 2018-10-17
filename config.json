@@ -18,14 +18,19 @@
     ],
     "others": [
         {
-            "key": "MAIL",
-            "href": "mailto:info@wikitolearn.org",
-            "icon": "far fa-envelope"
-        },
-        {
             "key": "FACEBOOK",
             "href": "https://www.facebook.com/WikiToLearn/",
             "icon": "fab fa-facebook-f"
+        },
+        {
+            "key": "TWITTER",
+            "href": "https://twitter.com/wikitolearn",
+            "icon": "fab fa-twitter"
+        },
+        {
+            "key": "MAIL",
+            "href": "mailto:info@wikitolearn.org",
+            "icon": "far fa-envelope"
         }
     ]
 }
